@@ -15,8 +15,155 @@ model User {
   email    String
   password String
 
+  id             String           @id
+  active         Boolean          @default(true)
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  Charactersheet Charactersheet[]
+}
+
+model Charactersheet {
+  characterName      String
+  personalityTrais   String?
+  ideals             String?
+  bonds              String?
+  flaws              String?
+  armorClass         Int
+  initiative         Int
+  speed              Int
+  hitPointMaximum    Int
+  currentHitPoints   Int
+  temporaryHitPoints Int
+  passiveWisdom      Int
+  inspiration        Boolean
+  proficiencyBonus   Int
+  experiencePoints   Int
+
   id        String   @id
   active    Boolean  @default(true)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  CharactersheetClass      CharactersheetClass[]
+  CharactersheetRace       CharactersheetRace[]
+  CharactersheetBackground CharactersheetBackground[]
+  CharactersheetAlignment  CharactersheetAlignment[]
+  CharactersheetAttribute  CharactersheetAttribute[]
+  CharactersheetSkill      CharactersheetSkill[]
+}
+
+model CharactersheetClass {
+  level Int
+
+  charactersheet   Charactersheet @relation(fields: [charactersheetId], references: [id])
+  charactersheetId String
+  class            Class          @relation(fields: [classId], references: [id])
+  classId          String
+
+  @@id([charactersheetId, classId])
+}
+
+model Class {
+  name                String
+  id                  String                @id
+  active              Boolean               @default(true)
+  createdAt           DateTime              @default(now())
+  updatedAt           DateTime              @updatedAt
+  CharactersheetClass CharactersheetClass[]
+}
+
+model CharactersheetRace {
+  race             Race           @relation(fields: [raceId], references: [id])
+  raceId           String
+  charactersheet   Charactersheet @relation(fields: [charactersheetId], references: [id])
+  charactersheetId String
+
+  @@id([raceId, charactersheetId])
+}
+
+model Race {
+  name               String
+  id                 String               @id
+  active             Boolean              @default(true)
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  CharactersheetRace CharactersheetRace[]
+}
+
+model CharactersheetBackground {
+  charactersheet   Charactersheet @relation(fields: [charactersheetId], references: [id])
+  charactersheetId String
+  background       Background     @relation(fields: [backgroundId], references: [id])
+  backgroundId     String
+
+  @@id([charactersheetId, backgroundId])
+}
+
+model Background {
+  name                     String
+  id                       String                     @id
+  active                   Boolean                    @default(true)
+  createdAt                DateTime                   @default(now())
+  updatedAt                DateTime                   @updatedAt
+  CharactersheetBackground CharactersheetBackground[]
+}
+
+model CharactersheetAlignment {
+  charactersheet   Charactersheet @relation(fields: [charactersheetId], references: [id])
+  charactersheetId String
+  alignment        Alignment      @relation(fields: [alignmentId], references: [id])
+  alignmentId      String
+
+  @@id([charactersheetId, alignmentId])
+}
+
+model Alignment {
+  alignment               String
+  id                      String                    @id
+  active                  Boolean                   @default(true)
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime                  @updatedAt
+  CharactersheetAlignment CharactersheetAlignment[]
+}
+
+model CharactersheetAttribute {
+  charactersheet   Charactersheet @relation(fields: [charactersheetId], references: [id])
+  charactersheetId String
+  attribute        Attribute      @relation(fields: [attributeId], references: [id])
+  attributeId      String
+
+  @@id([charactersheetId, attributeId])
+}
+
+model Attribute {
+  name                    String
+  id                      String                    @id
+  active                  Boolean                   @default(true)
+  createdAt               DateTime                  @default(now())
+  updatedAt               DateTime                  @updatedAt
+  CharactersheetAttribute CharactersheetAttribute[]
+  Skill                   Skill[]
+}
+
+model CharactersheetSkill {
+  charactersheet   Charactersheet @relation(fields: [charactersheetId], references: [id])
+  charactersheetId String
+  skill            Skill          @relation(fields: [skillId], references: [id])
+  skillId          String
+
+  @@id([charactersheetId, skillId])
+}
+
+model Skill {
+  attribute   Attribute @relation(fields: [attributeId], references: [id])
+  attributeId String
+
+  id                  String                @id
+  active              Boolean               @default(true)
+  createdAt           DateTime              @default(now())
+  updatedAt           DateTime              @updatedAt
+  CharactersheetSkill CharactersheetSkill[]
 }

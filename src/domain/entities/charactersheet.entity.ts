@@ -1,4 +1,10 @@
 import { Entity } from "@domain/common";
+import { CharacterSheetClass } from "./charactersheetClass.entity";
+import { CharactersheetRace } from "./charactersheetRace.entity";
+import { CharacterSheetBackground } from "./charactersheetBackground.entity";
+import { CharacterSheetAlignment } from "./charactersheetAlignment.entity";
+import { CharacterSheetAttribute } from "./charactersheetAttribute.entity";
+import { CharacterSheetSkill } from "./charactersheetSkill.entity";
 
 export class CharacterSheet extends Entity {
   public characterName: string;
@@ -17,6 +23,13 @@ export class CharacterSheet extends Entity {
   public proficiencyBonus: number;
   public experiencePoints: number;
   public userId: string;
+
+  public characterSheetClass?: CharacterSheetClass[];
+  public characterSheetRace?: CharactersheetRace[];
+  public characterSheetBackground?: CharacterSheetBackground[];
+  public characterSheetAlignment?: CharacterSheetAlignment;
+  public charactersheetAttribute?: CharacterSheetAttribute[];
+  public charactersheetSkill?: CharacterSheetSkill[];
 
   constructor(characterName: string, userId: string) {
     super();

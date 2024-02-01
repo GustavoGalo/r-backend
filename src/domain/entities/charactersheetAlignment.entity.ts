@@ -1,4 +1,4 @@
-import { Alignment } from "./alignment.entuty";
+import { Alignment } from "./alignment.entity";
 import { CharacterSheet } from "./charactersheet.entity";
 
 export class CharacterSheetAlignment {

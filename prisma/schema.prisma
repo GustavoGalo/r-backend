@@ -24,7 +24,7 @@ model User {
 
 model Charactersheet {
   characterName      String
-  personalityTrais   String?
+  personalityTraits  String?
   ideals             String?
   bonds              String?
   flaws              String?
@@ -33,7 +33,7 @@ model Charactersheet {
   speed              Int
   hitPointMaximum    Int
   currentHitPoints   Int
-  temporaryHitPoints Int
+  temporaryHitPoints Int?
   passiveWisdom      Int
   inspiration        Boolean
   proficiencyBonus   Int

@@ -1,6 +1,5 @@
 import { Entity } from "@domain/common";
-import { Attribute } from "./attribute.entity";
-import { CharacterSheetSkill } from "./charactersheetSkill.entity";
+import { Attribute, CharacterSheetSkill } from "@domain/entities";
 
 export class Skill extends Entity {
   public attribute?: Attribute;

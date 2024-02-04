@@ -1,5 +1,5 @@
 import { Race } from "@prisma/client";
-import { CharacterSheet } from "./charactersheet.entity";
+import { CharacterSheet } from "@domain/entities";
 
 export class CharactersheetRace {
   public race?: Race;

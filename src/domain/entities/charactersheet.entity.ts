@@ -1,10 +1,13 @@
 import { Entity } from "@domain/common";
-import { CharacterSheetClass } from "./charactersheetClass.entity";
-import { CharactersheetRace } from "./charactersheetRace.entity";
-import { CharacterSheetBackground } from "./charactersheetBackground.entity";
-import { CharacterSheetAlignment } from "./charactersheetAlignment.entity";
-import { CharacterSheetAttribute } from "./charactersheetAttribute.entity";
-import { CharacterSheetSkill } from "./charactersheetSkill.entity";
+import { 
+  CharacterSheetClass,
+  CharactersheetRace,
+  CharacterSheetBackground,
+  CharacterSheetAlignment,
+  CharacterSheetAttribute,
+  CharacterSheetSkill
+} from "@domain/entities";
+
 
 export class CharacterSheet extends Entity {
   public characterName: string;

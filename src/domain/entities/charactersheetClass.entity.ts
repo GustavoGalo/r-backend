@@ -1,5 +1,5 @@
 import { Class } from "@prisma/client";
-import { CharacterSheet } from "./charactersheet.entity";
+import { CharacterSheet } from "@domain/entities";
 
 export class CharacterSheetClass {
   constructor(

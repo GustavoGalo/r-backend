@@ -1,17 +1,20 @@
 import { Entity } from "@domain/common";
-import { CharacterSheetClass } from "./charactersheetClass.entity";
-import { CharactersheetRace } from "./charactersheetRace.entity";
-import { CharacterSheetBackground } from "./charactersheetBackground.entity";
-import { CharacterSheetAlignment } from "./charactersheetAlignment.entity";
-import { CharacterSheetAttribute } from "./charactersheetAttribute.entity";
-import { CharacterSheetSkill } from "./charactersheetSkill.entity";
+import { 
+  CharacterSheetClass,
+  CharactersheetRace,
+  CharacterSheetBackground,
+  CharacterSheetAlignment,
+  CharacterSheetAttribute,
+  CharacterSheetSkill
+} from "@domain/entities";
+
 
 export class CharacterSheet extends Entity {
   public characterName: string;
-  public personalityTraits?: string;
-  public ideals?: string;
-  public bonds?: string;
-  public flaws?: string;
+  public personalityTraits?: string | null;
+  public ideals?: string | null;
+  public bonds?: string | null;
+  public flaws?: string | null;
   public armorClass: number;
   public initiative: number;
   public speed: number;
@@ -24,12 +27,12 @@ export class CharacterSheet extends Entity {
   public experiencePoints: number;
   public userId: string;
 
-  public characterSheetClass?: CharacterSheetClass[];
-  public characterSheetRace?: CharactersheetRace[];
-  public characterSheetBackground?: CharacterSheetBackground[];
-  public characterSheetAlignment?: CharacterSheetAlignment;
-  public charactersheetAttribute?: CharacterSheetAttribute[];
-  public charactersheetSkill?: CharacterSheetSkill[];
+  public characterSheetClass?: CharacterSheetClass[] | null;
+  public characterSheetRace?: CharactersheetRace[] | null;
+  public characterSheetBackground?: CharacterSheetBackground[] | null;
+  public characterSheetAlignment?: CharacterSheetAlignment | null;
+  public charactersheetAttribute?: CharacterSheetAttribute[] | null;
+  public charactersheetSkill?: CharacterSheetSkill[] | null;
 
   constructor(characterName: string, userId: string) {
     super();

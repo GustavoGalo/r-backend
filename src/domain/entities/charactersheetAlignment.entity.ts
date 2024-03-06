@@ -1,5 +1,4 @@
-import { Alignment } from "./alignment.entity";
-import { CharacterSheet } from "./charactersheet.entity";
+import { Alignment, CharacterSheet } from "@domain/entities";
 
 export class CharacterSheetAlignment {
   public characterSheet?: CharacterSheet;

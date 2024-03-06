@@ -1,5 +1,5 @@
 import { Entity } from "@domain/common";
-import { CharacterSheetBackground } from "./charactersheetBackground.entity";
+import { CharacterSheetBackground } from "@domain/entities/charactersheetBackground.entity";
 
 export class Background extends Entity {
   public characterSheetBackground?: CharacterSheetBackground[];

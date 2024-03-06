@@ -1,5 +1,5 @@
 import { CharacterSheet } from "./charactersheet.entity";
-import { Skill } from "./skill.entity";
+import { Skill } from "@domain/entities";
 
 export class CharacterSheetSkill {
   public characterSheet?: CharacterSheet;

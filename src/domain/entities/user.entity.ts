@@ -1,5 +1,5 @@
 import { Entity } from "@domain/common";
-import { CharacterSheet } from "./charactersheet.entity";
+import { CharacterSheet } from "@domain/entities";
 
 export class User extends Entity {
   public characterSheet?: CharacterSheet[];

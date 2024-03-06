@@ -1,5 +1,4 @@
-import { Attribute } from "./attribute.entity";
-import { CharacterSheet } from "./charactersheet.entity";
+import { Attribute, CharacterSheet } from "@domain/entities";
 
 export class CharacterSheetAttribute {
   public characterSheet?: CharacterSheet;
